@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <form method="POST">
+        <div style="width:60%;float:right;">
+            <form method="POST">
+                    <table>
+                            <tr>
+                                <td><input type="text" name="username" required placeholder="username"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="password" required placeholder="password"></td>
+                            </tr>
+            
+                        </table>
+            
+                        <input type="submit" name="login" value="login">
+            </form>
+            <input type="button" name="register" value="register" onclick="fuc()">
+            
+        </div>
+
+
+        <script>
+            function fuc() {
+                window.location.href = "#注册页面";
+            }
+        </script>
+
+    </form>
+</body>
+
+</html>
