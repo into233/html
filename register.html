@@ -126,7 +126,7 @@
         }
 
         function blur_email() {
-            var email = document.getElementById('eemail');
+            var email = document.getElementById('email');
             if(isEmail(email.value)){
                 setflagandseebit(ensure['email'], 1);
             }
@@ -166,7 +166,7 @@
                 onblur="onblur_repassword()">
             <span id="repassword_error"></span>
             <br>
-            <input type="email" required name="email" placeholder="email">
+            <input type="email" required name="email" id="email" placeholder="email" onblur="blur_email()">
             <br>
             <input type="text" required name="i_d" placeholder="identifying code">
             <br>

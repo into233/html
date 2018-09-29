@@ -1,11 +1,50 @@
 <?php
-// The message
-$message = "Line 1\nLine 2\nLine 3";
 
-// In case any of our lines are larger than 70 characters, we should use wordwrap()
-$message = wordwrap($message, 70);
+require_once 'Mail.php';
+require_once 'Mail/mine.php';
+requre_once('Net/SMTP.php');
 
-// Send
-mail('1127174216@qq.com', 'My Subject', $message);
+$smtpinfo = array();
+$smtpinfo["host"] = "smtp.sina.com.cn";
+$smtpinfo["port"] = "25";
+$smtpinfo["username"] = "slomovbus@sina.com";
+$smtpinfo["password"] = "mmdyddc...."; //发件人邮箱密码
+$smtpinfo["timeout"] = 10; //网络超时时间，秒
+$smtpinfo["auth"] = true; //登录验证
 
+$mailAddr = array('1127174216@qq.com');
+// 发件人显示信息
+$from = "Name <1127174216@qq.com>";
+// 收件人显示信息
+$to = implode(',', $mailAddr);
+// 邮件标题
+$subject = "这是一封测试邮件";
+// 邮件正文
+$content = "<h3>随便写点什么</h3>";
+// 邮件正文类型，格式和编码
+$contentType = "text/html; charset=utf-8";
+//换行符号 Linux: \n Windows: \r\n
+$crlf = "\n";
+$mime = new Mail_mime($crlf);
+$mime->setHTMLBody($content);
+$param['text_charset'] = 'utf-8';
+$param['html_charset'] = 'utf-8';
+$param['head_charset'] = 'utf-8';
+$body = $mime->get($param);
+$headers = array();
+$headers["From"] = $from;
+$headers["To"] = $to;
+$headers["Subject"] = $subject;
+$headers["Content-Type"] = $contentType;
+$headers = $mime->headers($headers);
+$smtp = &Mail::factory("smtp", $smtpinfo);
+$mail = $smtp->send($mailAddr, $headers, $body);
+$smtp->disconnect();
+if (PEAR::isError($mail)) {
+    //发送失败
+    echo 'Email sending failed: ' . $mail->getMessage() . "\n";
+} else {
+    //发送成功
+    echo "success!\n";
+}
 ?>
