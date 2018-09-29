@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Mail.php';
-require_once 'Mail/mine.php';
+require_once('Mail.php');
+require_once('Mail/mime.php');
 requre_once('Net/SMTP.php');
 
 $smtpinfo = array();
