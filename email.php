@@ -6,6 +6,6 @@ $message = "Line 1\nLine 2\nLine 3";
 $message = wordwrap($message, 70);
 
 // Send
-mail('1037547965@qq.com', 'My Subject', $message);
+mail('1127174216@qq.com', 'My Subject', $message);
 
 ?>
