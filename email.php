@@ -2,7 +2,7 @@
 
 require_once('Mail.php');
 require_once('Mail/mime.php');
-requre_once('Net/SMTP.php');
+require_once('Net/SMTP.php');
 
 $smtpinfo = array();
 $smtpinfo["host"] = "smtp.sina.com.cn";
@@ -14,13 +14,14 @@ $smtpinfo["auth"] = true; //登录验证
 
 $mailAddr = array('1127174216@qq.com');
 // 发件人显示信息
-$from = "Name <1127174216@qq.com>";
+// $from = "Name <1127174216@qq.com>";
+$from = "slomovbus@sina.com";//渣浪
 // 收件人显示信息
 $to = implode(',', $mailAddr);
 // 邮件标题
-$subject = "这是一封测试邮件";
+$subject = "ch945验证码";
 // 邮件正文
-$content = "<h3>随便写点什么</h3>";
+$content = "<h3>验证码:</h3>18998,请勿将次验证码告予他人.慎重";
 // 邮件正文类型，格式和编码
 $contentType = "text/html; charset=utf-8";
 //换行符号 Linux: \n Windows: \r\n
@@ -37,7 +38,7 @@ $headers["To"] = $to;
 $headers["Subject"] = $subject;
 $headers["Content-Type"] = $contentType;
 $headers = $mime->headers($headers);
-$smtp = &Mail::factory("smtp", $smtpinfo);
+$smtp =& Mail::factory("smtp", $smtpinfo);
 $mail = $smtp->send($mailAddr, $headers, $body);
 $smtp->disconnect();
 if (PEAR::isError($mail)) {
