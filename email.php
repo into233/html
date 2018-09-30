@@ -7,7 +7,7 @@ require_once('Net/SMTP.php');
 $smtpinfo = array();
 $smtpinfo["host"] = "smtp.sina.com.cn";
 $smtpinfo["port"] = "25";
-$smtpinfo["username"] = "slomovbus@sina.com";
+$smtpinfo["username"] = "slomovbus";
 $smtpinfo["password"] = "mmdyddc...."; //发件人邮箱密码
 $smtpinfo["timeout"] = 10; //网络超时时间，秒
 $smtpinfo["auth"] = true; //登录验证
@@ -15,7 +15,7 @@ $smtpinfo["auth"] = true; //登录验证
 $mailAddr = array('1127174216@qq.com');
 // 发件人显示信息
 // $from = "Name <1127174216@qq.com>";
-$from = "slomovbus@sina.com";//渣浪
+$from = "slomovbus@sina.com";//
 // 收件人显示信息
 $to = implode(',', $mailAddr);
 // 邮件标题
